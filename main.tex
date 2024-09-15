@@ -1,0 +1,224 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{multicol}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+\begin{center} \textbf{\Huge \scshape Drew Mayo} \\ \vspace{1pt} \small +1 (630)-715-3136 $|$ \href{mailto:x@x.com}{{drewm4@illinois.edu}} $|$
+    \href{https://linkedin.com/in/drew-mayo-404549290}{linkedin.com/in/drew-mayo-404549290} $|$
+    \href{https://github.com/DrewMayo}{{github.com/DrewMayo}}
+    %empty
+    
+    {US Citizen}
+\end{center}
+
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+  {\textbf{University of Illinois Urbana-Champaign}}{Expected May 2027}
+  \resumeItemListStart
+    \resumeItem{Bachelor of Science in Computer Engineering}
+    \resumeItem{GPA: 3.94, Dean's List}
+    \resumeItem{Relevant Coursework: Intro to Computing, Intro to Electronics, Computer Systems and Programming, Data Structures and Algorithms(in progress), Analog Signal Processing(in progress)}
+    
+  \resumeItemListEnd
+    %I will put this on again
+%
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Nintendo Entertainment System Emulator} $|$ \emph{C, SDL2, Cjson, Make, GCC}}{June 2024 -- Present}
+          \small \item{  \emph{ Work In Progress}}
+          \resumeItemListStart
+            \resumeItem{Developed an emulator which managed many subsystems (CPU, picture processing unit, 
+            and  game cartridges) working in tandem}
+            \resumeItem{Created an instruction accurate 6502-like CPU which turned all 256 assembly instructions into analogous operations in C}
+            \resumeItem{Made a parser that accurately decoded some game cartridge files to be read by the 
+            CPU}
+            \resumeItem{Used a memory map that coordinated reads and writes between the picture processing
+            unit, the cartridge and the CPU}
+            \resumeItem{Used SDL2 which (somewhat accurately) translated a hardware bitmap created by the picture processing unit 
+            into a texture which was streamed to the screen}
+            \resumeItem{Tested all 256 CPU instructions on 2.56 million premade JSON test cases (10000 per instruction) in order to determine the accuracy of the CPU}
+          \resumeItemListEnd
+
+          \resumeProjectHeading
+          {\textbf{Chip-8 Interpreter} $|$ \emph{C, SDL2, Make, GCC}}{March 2024 -- May 2024}
+          \resumeItemListStart
+            \resumeItem{Created a system that can run programs by decoding machine code for Chip-8}
+            \resumeItem{Implemented a basic control systems which interacted with the simple programs}
+            \resumeItem{Learned improved control flow for making a system that has defined and simple
+            states}
+            \resumeItem{Improved performance so it displayed at a constant 60Hz and the processor ran at a constant clock rate of 700Hz}
+          \resumeItemListEnd
+          \resumeProjectHeading
+          {\textbf{Minecraft Plugin} $|$ \emph{Java, Gradle, Spigot API}}{May 2021 -- December 2022}
+          \resumeItemListStart
+            \resumeItem{Cached and stored data for over 2000 players in JSON}
+            \resumeItem{Programmed a Minecraft plugin used on my server that netted up to 50 users}
+            \resumeItem{Generated revenue through players paying for in game items}
+            \resumeItem{Implemented a security system to detect players whom took advantage of bugs or were 
+            breaking the rules}
+          \resumeItemListEnd
+          \resumeProjectHeading
+          {\textbf{Clipped Sine Wave Generator}}{May 2024}
+          \resumeItemListStart
+            \resumeItem{Made a signal generator which used many subsystems in conjunction to create
+            a sine wave}
+            \resumeItem{Controlled the clipping, frequency and duty cycle of the signal with the use of multiple potentiometers}
+            \resumeItem{Collaborated with a team in order to efficently devide up tasks and finish the project on 
+            time}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+%
+
+%-----------EXPERIENCE-----------
+%\section{Relevant Coursework}
+%\vspace*{-1\baselineskip}
+%\begin{multicols}{1}
+%    \resumeItemListStart\setlength{\itemsep}{0pt}
+%    \resumeItem{Intro to Computing}
+%    \resumeItem{Intro to Electronics}
+%    \resumeItem{Computer Systems and Programming}
+    %I will put this on again
+%    \resumeItem{Data Structures and Algorithms(in progress)}
+%    \resumeItem{Analog Signal Processing(in progress)}
+ %   \resumeItemListEnd
+%\end{multicols}
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: C/C++, Java, Python} \\
+     \textbf{Dev Tools}{: Git, Make, Linux/Unix, GCC} \\
+     \textbf{Libraries}{: numpy, SDL2, Cjson}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+ \end{document}
