@@ -1,0 +1,38 @@
+name: Build and Release Resume
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "main.tex"
+      - ".github/workflows/build.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        
+      - name: Compile LaTeX to PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          
+      - name: Rename output
+        run: mv main.pdf resume.pdf
+
+      - name: Publish stable release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: latest
+          name: "Latest Resume"
+          body: "Automatically built from ${{ github.sha }}"
+          artifacts: resume.pdf
+          allowUpdates: true
+          replacesArtifacts: true
+          makeLatest: true
