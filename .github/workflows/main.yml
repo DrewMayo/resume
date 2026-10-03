@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - "main.tex"
-      - ".github/workflows/build.yml"
+      - ".github/workflows/main.yml"
   workflow_dispatch: {}
 
 permissions:
@@ -17,14 +17,19 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        
+
       - name: Compile LaTeX to PDF
         uses: xu-cheng/latex-action@v4
         with:
           root_file: main.tex
-          
+
       - name: Rename output
         run: mv main.pdf resume.pdf
+
+      - name: Move latest tag to this commit
+        run: |
+          git tag -f latest "${{ github.sha }}"
+          git push -f origin latest
 
       - name: Publish stable release
         uses: ncipollo/release-action@v1
